@@ -25,5 +25,36 @@
  }
 
  .techList {
+    background-color: #52b2bf;
+ }
+
+ .shitInfo {
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+ .shiftInfo th, .shiftInfo td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+ }
+
+ .shiftInfo th {
+    background-color: #52b2bf;
+ }
+
+ .shiftInfo tr {
+    background-color: #82eefd
+ }
+
+ .shiftInfo th, .shiftInfo td {
+    white-space: nowrap;
+ }
+
+ .shiftInfo th, shiftInfo td {
+    padding: 10px;
+ }
+
+ .shiftInfo tr:hover {
     background-color: white;
  }

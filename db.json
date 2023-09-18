@@ -26,12 +26,19 @@
       }
   ],
 
+
   "shiftInfo": [
       {
           "name": "John Doe",
           "shift": "FHD",
-          "timeIn": "12:00",
-          "timeOut": "22:30"
+          "timeIn": 1200,
+          "timeOut": 2230
+      },
+      {
+          "name": "Ed Stokes",
+          "shift": "FHD",
+          "timeIn": 530,
+          "timeOut": 1600
       }
   ],
 
