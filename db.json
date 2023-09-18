@@ -1,0 +1,47 @@
+{
+  "passdowns": [
+      {
+          "id": 1,
+          "date": "01/01/2023",
+          "tech": "John Doe",
+          "timeIn": "12:000",
+          "timeOut": "10:30",
+          "workorder": 12345678,
+          "description": "Description of work performed",
+          "bookedLabor": 1,
+          "status": "Completed",
+          "comments": "Add necessary commentst here"
+
+      }
+  ],
+
+  "techs": [
+      {
+          "name": "John doe",
+          "userName": "johndoe"  
+      },
+      {
+          "name": "Ed Stokes",
+          "userName": "garystok"
+      }
+  ],
+
+  "shiftInfo": [
+      {
+          "name": "John Doe",
+          "shift": "FHD",
+          "timeIn": "12:00",
+          "timeOut": "22:30"
+      }
+  ],
+
+  "safety": [
+      {
+          "saftyTopic": "safety topic of the day",
+          "standardOfWork": "Standards of work",
+          "signOffRequired": "true"
+      }
+  ]
+
+
+}
