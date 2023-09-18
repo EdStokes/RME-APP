@@ -13,6 +13,7 @@
     text-decoration: none;
     color: white;
     box-shadow: 4px 6px 6px black;
+    margin-bottom: 20px;
  }
 
  .navBar a {
@@ -28,7 +29,7 @@
     background-color: #52b2bf;
  }
 
- .shitInfo {
+ .shitInfo, .passdownTable {
     border-collapse: collapse;
     width: 100%;
  }
@@ -57,4 +58,25 @@
 
  .shiftInfo tr:hover {
     background-color: white;
+ }
+
+ .passdownTable th, .passdownTable td {
+   border: 1px solid black;
+   padding: 8px;
+   text-align: center;
+   padding: 10px;
+   white-space: nowrap;
+ }
+
+ .passdownTable th {
+   background-color: #52b2bf;
+   
+ }
+
+ .passdownTable tr {
+   background-color: #82eefd;
+ }
+
+ .passdownTable tr:hover {
+   background-color: white;
  }

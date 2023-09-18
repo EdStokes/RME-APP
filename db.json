@@ -4,14 +4,26 @@
           "id": 1,
           "date": "01/01/2023",
           "tech": "John Doe",
-          "timeIn": "12:000",
-          "timeOut": "10:30",
+          "timeIn": 1200,
+          "timeOut": 2230,
           "workorder": 12345678,
           "description": "Description of work performed",
           "bookedLabor": 1,
           "status": "Completed",
           "comments": "Add necessary commentst here"
 
+      },
+      {
+        "id": 2,
+        "date": "01/01/2023",
+        "tech": "Superman",
+        "timeIn": 530,
+        "timeOut": 1600,
+        "workorder": 23456789,
+        "description": "Description of work performed",
+        "bookedLabor": 2,
+        "status": "In-Progress",
+        "comments": "Add necessary comments here"
       }
   ],
 

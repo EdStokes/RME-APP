@@ -29,6 +29,8 @@ function ShiftInfo() {
     }, []);
 
     return (
+        <div>
+            <h2>Techs on Duty</h2>
         <table className="shiftInfo">
             <thead>
                 <tr>
@@ -49,6 +51,8 @@ function ShiftInfo() {
                 ))}
             </tbody>
         </table>
+        <button>Edit Shit Info</button>
+        </div>
     )
 
 }
