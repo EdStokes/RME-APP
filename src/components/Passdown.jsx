@@ -1,14 +1,42 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-function PassdownInfo() {
+function PassdownHeader({ techs }) {
+    return (
+    <div className="passdownHeader">
+        <form>
+            <label>Tech</label>
+            <select>
+                {techs.map((tech) => (
+                    <option>{tech.name}</option>
+                ))}
+            </select>
+           <label>Date: </label>
+           <input type="date" />
+           <lable>Time In: </lable>
+           <input type="time" />
+           <label>Time Out: </label>
+           <input type="time" />
+           <label>Hours Worked: </label>
+           <input type="text" />
+           <label>95% Hours: </label>
+           <input type="text" />
+           <label>Booked: </label>
+           <input types="text" />
+           <button>Add Work</button>
+        </form>
+    </div>
+    );
+}
+
+        function PassdownInfo() {
     const [currentPassdownInfo, setCurrentPassdownInfo] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:4000/passdowns")
-        .then((response) => response.json())
-        .then((info) => setCurrentPassdownInfo(info))
-    }, []);
+            fetch("http://localhost:4000/passdowns")
+                .then((response) => response.json())
+                .then((info) => setCurrentPassdownInfo(info))
+        }, []);
 
-    return (
+        return (
         <div>
             <table className="passdownTable">
                 <thead>
@@ -33,16 +61,17 @@ function PassdownInfo() {
                 </tbody>
             </table>
         </div>
-    )
+        )
 }
 
-function Passdown() {
+        function Passdown({techs}) {
 
     return (
         <div>
-        <PassdownInfo />
+            <PassdownHeader techs={techs} />
+            <PassdownInfo />
         </div>
-    )
+        )
 }
 
-export default Passdown;
+        export default Passdown;

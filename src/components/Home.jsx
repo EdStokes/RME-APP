@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-function TechList() {
-    const [techs, setTechs] = useState([]);
+function TechList({onTechUpdate}) {
+    const [techs, setTechs] = useState([])
+
+    
     useEffect(() => {
         fetch("http://localhost:4000/techs")
             .then((response) => response.json())
-            .then((techs) => setTechs(techs));
+            .then((techs) => {
+                setTechs(techs);
+                onTechUpdate(techs)
+            });
     }, []);
 
     return (
@@ -58,17 +63,23 @@ function ShiftInfo() {
 }
 
 
-function Home() {
+function Home({techs, onTechUpdate}) {
+    if (typeof onTechUpdate !== 'function') {
+        return <div>Loading....</div>;
+    }
+
+  
     return (
         <div>
             <h1 className="homeTitle">Welcome to STN1</h1>
             <p>Serving the best of Nashville since 2020</p>
-            <TechList />
+            <TechList onTechUpdate={onTechUpdate} />
             <ShiftInfo />
 
         </div>
 
-    )
+    );
 }
 
 export default Home;
+

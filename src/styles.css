@@ -20,7 +20,7 @@
     color: white;
  }
 
- .homeLink.active {
+ .homeLink.active, .passdownLink.active {
     background-color: #3c3744;
     padding:  12px;
  }
@@ -29,7 +29,7 @@
     background-color: #52b2bf;
  }
 
- .shitInfo, .passdownTable {
+ .shitInfo {
     border-collapse: collapse;
     width: 100%;
  }
@@ -60,6 +60,13 @@
     background-color: white;
  }
 
+ .passdownTable {
+   box-shadow: 4px 6px 6px black;
+   border-radius: 10px;
+   margin: 20px;
+   width: 97%;
+ }
+
  .passdownTable th, .passdownTable td {
    border: 1px solid black;
    padding: 8px;
@@ -79,4 +86,20 @@
 
  .passdownTable tr:hover {
    background-color: white;
+ }
+
+ .passdownHeader {
+   display: flex;
+   background-color: #52b2bf;
+   padding: 20px;
+   width: 94%;
+   margin: 20px;
+   margin-right: 10px;
+   box-shadow: 4px 6px 6px black;
+   border-radius: 10px;
+ }
+
+ .passdownHeader label {
+   padding: 8px;
+   margin: 10px;
  }
