@@ -4,24 +4,28 @@ function PassdownHeader({ techs }) {
     return (
         <div className="passdownHeader">
             <form>
-                <label>Tech</label>
-                <select>
-                    {techs.map((tech) => (
-                        <option>{tech.name}</option>
-                    ))}
-                </select>
-                <label>Date: </label>
-                <input type="date" />
-                <lable>Time In: </lable>
-                <input type="time" />
-                <label>Time Out: </label>
-                <input type="time" />
-                <label>Hours Worked: </label>
-                <input type="text" />
-                <label>95% Hours: </label>
-                <input type="text" />
-                <label>Booked: </label>
-                <input types="text" />
+                <div className="passdownHeaderTop">
+                    <label>Tech</label>
+                    <select>
+                        {techs.map((tech) => (
+                            <option key={tech.name}>{tech.name}</option>
+                        ))}
+                    </select>
+                    <label>Date: </label>
+                    <input type="date" />
+                    <label>Time In: </label>
+                    <input type="time" />
+                    <label>Time Out: </label>
+                    <input type="time" />
+                </div>
+                <div className="passdownHeaderBottom">
+                    <label>Hours Worked: </label>
+                    <input type="text" />
+                    <label>95% Hours: </label>
+                    <input type="text" />
+                    <label>Booked: </label>
+                    <input type="text" />
+                </div>
                 <button>Add Work</button>
             </form>
         </div>
@@ -31,7 +35,7 @@ function PassdownHeader({ techs }) {
 function statusColor(status) {
     if (status === "Completed") {
         return "green"
-    }else if (status === "In-Progress") {
+    } else if (status === "In-Progress") {
         return "yellow"
     }
 }
@@ -62,7 +66,7 @@ function PassdownInfo() {
                             <td>{info.workorder}</td>
                             <td>{info.description}</td>
                             <td>{info.bookedLabor}</td>
-                            <td style={{backgroundColor: statusColor(info.status)}}>{info.status}</td>
+                            <td style={{ backgroundColor: statusColor(info.status) }}>{info.status}</td>
                             <td>{info.comments}</td>
                         </tr>
                     ))}
@@ -83,3 +87,5 @@ function Passdown({ techs }) {
 }
 
 export default Passdown;
+
+
