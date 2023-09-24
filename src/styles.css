@@ -20,17 +20,42 @@
     color: white;
  }
 
+ .navBarLeft {
+   justify-content: flex-start;
+   display: flex;
+   padding: 10px;
+
+ }
+
+ .navBarRight {
+   justify-content: flex-end;
+   display: flex;
+   padding: 10px;
+ }
+
  .navLogo {
    width: 45px;
    height: 45px;
    border-radius: 50%;
+   padding: 10px;
  }
 
- .homeLink.active, .passdownLink.active {
+ .homeLink.active, .passdownLink.active, .safetyLink.active {
     background-color: #3c3744;
     padding:  12px;
  }
 
+ .homeLink {
+   padding: 15px;
+ }
+
+ .passdownLink {
+   padding: 15px;
+ }
+ 
+ .safetyLink {
+   padding: 15px;
+ }
  .techList {
     background-color: #52b2bf;
  }
@@ -111,3 +136,8 @@
    padding: 8px;
    margin: 10px;
  }
+
+
+
+
+ 
