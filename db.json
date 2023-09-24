@@ -22,7 +22,7 @@
         "workorder": 23456789,
         "description": "Description of work performed",
         "bookedLabor": 2,
-        "status": "In-Progress",
+        "status": "Completed",
         "comments": "Add necessary comments here"
       }
   ],

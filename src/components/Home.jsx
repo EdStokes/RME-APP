@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from '../logo.jpeg';
 
 function TechList({onTechUpdate}) {
     const [techs, setTechs] = useState([])
@@ -72,6 +73,7 @@ function Home({techs, onTechUpdate}) {
     return (
         <div>
             <h1 className="homeTitle">Welcome to STN1</h1>
+            <img src={logo} alt="Site Logo" />
             <p>Serving the best of Nashville since 2020</p>
             <TechList onTechUpdate={onTechUpdate} />
             <ShiftInfo />

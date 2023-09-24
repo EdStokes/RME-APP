@@ -20,6 +20,11 @@
     color: white;
  }
 
+ .navLogo {
+   width: 45px;
+   height: 45px;
+ }
+
  .homeLink.active, .passdownLink.active {
     background-color: #3c3744;
     padding:  12px;
