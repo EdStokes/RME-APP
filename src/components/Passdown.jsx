@@ -1,36 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function PassdownHeader({ techs }) {
-    return (
-        <div className="passdownHeader">
-            <form>
-                <div className="passdownHeaderTop">
-                    <label>Tech</label>
-                    <select>
-                        {techs.map((tech) => (
-                            <option key={tech.name}>{tech.name}</option>
-                        ))}
-                    </select>
-                    <label>Date: </label>
-                    <input type="date" />
-                    <label>Time In: </label>
-                    <input type="time" />
-                    <label>Time Out: </label>
-                    <input type="time" />
-                </div>
-                <div className="passdownHeaderBottom">
-                    <label>Hours Worked: </label>
-                    <input type="text" />
-                    <label>95% Hours: </label>
-                    <input type="text" />
-                    <label>Booked: </label>
-                    <input type="text" />
-                </div>
-                <button>Add Work</button>
-            </form>
-        </div>
-    );
-}
+
 
 function statusColor(status) {
     if (status === "Completed") {
@@ -40,7 +10,7 @@ function statusColor(status) {
     }
 }
 
-function PassdownInfo() {
+function PassdownInfo({ techs }) {
     const [currentPassdownInfo, setCurrentPassdownInfo] = useState([]);
     useEffect(() => {
         fetch("http://localhost:4000/passdowns")
@@ -50,6 +20,7 @@ function PassdownInfo() {
 
     return (
         <div>
+
             <table className="passdownTable">
                 <thead>
                     <tr>
@@ -76,12 +47,15 @@ function PassdownInfo() {
     )
 }
 
-function Passdown({ techs }) {
-
+function Passdown({ headerInfo }) {
     return (
         <div>
-            <PassdownHeader techs={techs} />
-            <PassdownInfo />
+            <div>
+                <h1>{typeof(headerInfo)}</h1>
+            </div>
+            <div>
+                <PassdownInfo />
+            </div>
         </div>
     )
 }

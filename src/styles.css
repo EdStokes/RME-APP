@@ -12,7 +12,6 @@
     background-color: #090c9b;
     text-decoration: none;
     color: white;
-    /* box-shadow: 4px 6px 6px black; */
     margin-bottom: 20px;
  }
 
@@ -33,6 +32,12 @@
    padding: 10px;
  }
 
+ .navBarCenter {
+   justify-content: center;
+   display: flex;
+   padding: 10px;
+ }
+
  .navLogo {
    width: 45px;
    height: 45px;
@@ -45,19 +50,16 @@
     padding:  12px;
  }
 
- .homeLink {
+ .homeLink, .passdownLink, .safetyLink, .createPassdownLink, .searchPassdownLink {
    padding: 15px;
  }
 
- .passdownLink {
-   padding: 15px;
- }
- 
- .safetyLink {
-   padding: 15px;
- }
  .techList {
     background-color: #52b2bf;
+ }
+
+ .homeLogo {
+   border-radius: 50%;
  }
 
  .shitInfo {
@@ -124,9 +126,8 @@
  .passdownHeader {
    background-color: #52b2bf;
    padding: 20px;
-   width: 50%;
-   margin: 20px;
-   margin-right: 10px;
+   width: 75%;
+   margin-left: 10%;
    box-shadow: 4px 6px 6px black;
    border-radius: 10px;
  }
@@ -151,7 +152,7 @@
  .passdownHeader input[type="date"] {
    padding: 5px;
    margin: 5px 0;
-   width: 10%;
+   width: 15%;
    border: 1px solid black;
    border-radius: 3px;
  }
@@ -166,6 +167,9 @@
 
  }
 
+
+
+ 
 
 
 
