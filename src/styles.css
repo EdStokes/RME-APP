@@ -207,3 +207,7 @@
  .passdownHeaderInfoBottomRight {
     padding-left: 200px;
  }
+
+ .homeTitle, img {
+   width: 350px;
+ }

@@ -17,15 +17,26 @@ function SearchPassdown() {
     }, []);
 
     function handleSearch() {
+        console.log("this is the search date", searchDate)
         const filteredData = searchData.filter((entry) => {
             const isDateMatch = searchDate === "" || entry.date === searchDate;
             const isTechMatch = techs === "" || entry.tech === techs;
             return isDateMatch && isTechMatch
         });
 
+       
+
 
         setSearchResults(filteredData);
     };
+
+    function statusColor(status) {
+        if (status === "Completed") {
+            return "green"
+        } else if (status === "In-Progress") {
+            return "yellow"
+        }
+    }
 
     return (
         <div>
@@ -34,8 +45,8 @@ function SearchPassdown() {
                 <form>
                     <label>
                         Date:
-                        <input type="text" value={searchDate}
-                            onChange={(event) => setSearchDate(event.target.value)} />
+                        <input type="text" value={searchDate} placeholder="mm/dd/yyyy"
+                            onChange={(event) => { const selectedDate = event.target.value; setSearchDate(selectedDate)}} />
                     </label>
                     <label>
                         Tech:
@@ -54,6 +65,7 @@ function SearchPassdown() {
                 </ul>
             </div>
             <div>
+                {searchResults.length > 0 ? (
                 <table className="passdownTable">
                     <thead>
                         <tr>
@@ -71,7 +83,7 @@ function SearchPassdown() {
                                 <td>{wo.workorder}</td>
                                 <td>{wo.description}</td>
                                 <td>{wo.bookedLabor}</td>
-                                <td>{wo.status}</td>
+                                <td style={{backgroundColor: statusColor(wo.status)}}>{wo.status}</td>
                                 <td>{wo.comments}</td>
                                 
                             </tr>
@@ -79,6 +91,9 @@ function SearchPassdown() {
                         ))}
                     </tbody>
                 </table>
+                ) : (
+                    <h1>No serach results to display</h1>
+                )}
             </div>
         </div>
     );
