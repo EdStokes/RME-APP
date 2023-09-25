@@ -15,14 +15,13 @@ function NavBar() {
                 {location.pathname === '/Passdown' && (
                     <div>
                         <Link to="/passdown/passdownForm" className="createPassdownLink">Create Passdown</Link>
-                        <Link to="/passdown/searchPassdownLink" className="searchPassdownButton">Search</Link>
+                        <Link to="/passdown/searchPassdown" className="searchPassdownButton">Search</Link>
                     </div>
                 )}
             </div>
             <div className="navBarRight">
                 <NavLink to="/" exact className="homeLink">Home</NavLink>
                 <NavLink to="/Passdown" exact className="passdownLink">Passdown</NavLink>
-                <NavLink to="/Safety" exact className="safetyLink">Safety</NavLink>
             </div>
         </div>
     )

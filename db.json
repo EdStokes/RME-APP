@@ -6,24 +6,45 @@
           "tech": "John Doe",
           "timeIn": 1200,
           "timeOut": 2230,
-          "workorder": 12345678,
-          "description": "Description of work performed",
-          "bookedLabor": 1,
-          "status": "Completed",
-          "comments": "Add necessary commentst here"
-
+          "workorder": [
+            {
+                "workorder": 12345678,
+                "description": "Descrition of work performed",
+                "bookedLabor": 1,
+                "status": "Completed",
+                "comments": "Add necessary comments here"
+            },
+            {
+                "workorder": 23456789,
+                "description": "Description of work performed",
+                "bookedLabor": 2,
+                "status": "In-Progress",
+                "comments": "Add necessary comments here"
+            }
+          ]
       },
       {
         "id": 2,
-        "date": "01/01/2023",
-        "tech": "Superman",
-        "timeIn": 530,
-        "timeOut": 1600,
-        "workorder": 23456789,
-        "description": "Description of work performed",
-        "bookedLabor": 2,
-        "status": "In-Progress",
-        "comments": "Add necessary comments here"
+          "date": "01/02/2023",
+          "tech": "Superman",
+          "timeIn": 530,
+          "timeOut": 1630,
+          "workorder": [
+            {
+                "workorder": 34567890,
+                "description": "Descrition of work performed",
+                "bookedLabor": 2,
+                "status": "Completed",
+                "comments": "Add necessary comments here"
+            },
+            {
+                "workorder": 5678901,
+                "description": "Description of work performed",
+                "bookedLabor": 0,
+                "status": "Open",
+                "comments": "Add necessary comments here"
+            }
+          ]
       }
   ],
 
