@@ -11,7 +11,7 @@ import PassdownForm from "./components/PassdownForm";
 function App() {
 
   const [techs, setTechs] = useState([]);
-  const [currentPassdownInfo, setCurrentPassdownInfo] = useState([]);
+  const [currentPassdownInfo, setCurrentPassdownInfo] = useState({});
 
   function handleTechs(techs) {
     setTechs(techs)

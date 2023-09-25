@@ -10,7 +10,7 @@ function statusColor(status) {
     }
 }
 
-function PassdownInfo({ techs }) {
+function PassdownInfo() {
     const [currentPassdownInfo, setCurrentPassdownInfo] = useState([]);
     useEffect(() => {
         fetch("http://localhost:4000/passdowns")
@@ -47,11 +47,36 @@ function PassdownInfo({ techs }) {
     )
 }
 
+function Header({ headerInfo }) {
+    return (
+        <div className="passdownHeaderInfo">
+            <div className="passdownHeaderInfoTop">
+                <h1>{headerInfo.tech}</h1>
+            </div>
+            <div className="passdownHeaderInfoBottom">
+                <div className="passdownHeaderInfoBottomLeft">
+                    <h2>Time In: {headerInfo.timeIn}</h2>
+                    <h2>Time Out: {headerInfo.timeOut}</h2>
+                </div>
+                <div className="passdownHeaderInfoBottomRight">
+                    <div>
+                        <h2>Hours worked: </h2>
+                        <h2>95% Hours:</h2>
+                        <h2>Booked Labor:</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    )
+}
+
 function Passdown({ headerInfo }) {
     return (
         <div>
             <div>
-                <h1>{typeof(headerInfo)}</h1>
+                <Header headerInfo={headerInfo} />
             </div>
             <div>
                 <PassdownInfo />
