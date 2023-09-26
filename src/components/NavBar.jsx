@@ -14,7 +14,7 @@ function NavBar() {
             <div className="navBarCenter">
                 {location.pathname === '/Passdown' && (
                     <div>
-                        <Link to="/passdown/passdownForm" className="createPassdownLink">Create Passdown</Link>
+                        <Link to="/passdown/createPassdown" className="createPassdownLink">Create Passdown</Link>
                         <Link to="/passdown/searchPassdown" className="searchPassdownButton">Search</Link>
                     </div>
                 )}

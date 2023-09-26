@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import SearchPassdown from "./components/SearchPassdown";
 import Passdown from "./components/Passdown";
+import CreatePassdown from "./components/CreatePassdown";
 import React, { useEffect, useState } from "react";
 // import PassdownForm from "./components/PassdownForm";
 
@@ -30,7 +31,11 @@ function App() {
         </Route>
         <Route exact path="/passdown/searchPassdown"
           render={(routeProps) =>
-            <SearchPassdown {...routeProps}/>}
+            <SearchPassdown {...routeProps} />}
+        />
+        <Route exact path="/passdown/createPassdown"
+          render={(routeProps) =>
+            <CreatePassdown {...routeProps} />}
         />
       </Switch>
     </div>

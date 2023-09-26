@@ -74,10 +74,10 @@ function Home({techs, onTechUpdate}) {
         <div>
             <h1 className="homeTitle">Welcome to STN1</h1>
             <img src={logo} alt="Site Logo" className="homeLogo" />
-            <p>Serving the best of Nashville since 2020</p>
-            <TechList onTechUpdate={onTechUpdate} />
-            <ShiftInfo />
-
+            <p> add list of site techs here with edit button to add tecsh</p>
+    
+            <p>Add site info here address, contact info(Site lead, Regional AMM, site AMM</p>
+        
         </div>
 
     );

@@ -30,7 +30,12 @@ function Passdown() {
     return (
         <div>
             <div>
-               <h1>Passdown</h1> 
+               <h1>Create Passdown</h1> 
+               <p>Select Create Passdown to create a passdown</p>
+            </div>
+            <div>
+                <h1>Search</h1>
+                <p>Select Search to search existing passdowns</p>
             </div>
         </div>
     )
