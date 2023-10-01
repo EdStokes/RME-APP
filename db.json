@@ -51,7 +51,7 @@
         {
             "id": 3,
             "date": "01/02/2023",
-            "tech": "Superman",
+            "tech": "Batman",
             "timeIn": 600,
             "timeOut": 1900,
             "bookedHours": 2,
@@ -81,6 +81,10 @@
         {
             "name": "Ed Stokes",
             "userName": "garystok"
+        },
+        {
+            "name": "Batman",
+            "userName": "darknight"
         }
     ],
     "shiftInfo": [

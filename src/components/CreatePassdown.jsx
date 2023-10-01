@@ -46,7 +46,7 @@ function PassdownForm({techs}) {
                     <label>Tech</label>
                     <select value={selectedTech} onChange={(event) => setSelectedTech(event.target.value)}>
                         {techs.map((tech) => (
-                            <option key={tech.id} value={tech.id}>{tech.name}</option>
+                            <option key={tech.id} value={tech.name}>{tech.name}</option>
                         ))}
                     </select>
                     <label>Date: </label>
@@ -72,7 +72,6 @@ function PassdownForm({techs}) {
 
 function CreatePassdown() {
     const [techData, setTechData] = useState([]);
-
     useEffect(() => {
         fetch("http://localhost:4000/techs")
             .then((response) => response.json())
@@ -90,13 +89,14 @@ function CreatePassdown() {
         <div>
             <PassdownForm onSave={handleSaveWorkItem} techs={techData} />
             <div className="workTableContainer">
-                <WorkTable workItems={workItems} />
+                <WorkTable workItems={workItems} tech={selectedTech} />
             </div>
         </div>
     )
 }
 
-function AddworkForm({ onSave, onCancel, }) {
+function AddworkForm({ onSave, onCancel, tech }) {
+    console.log("Tech Name:", tech)
     const [workDescription, setWorkDescription] = useState("");
     const [isDescriptionEmpty, setIsDescriptionEmpty] = useState(false);
 
@@ -118,7 +118,6 @@ function AddworkForm({ onSave, onCancel, }) {
 
     return (
         <div>
-            <h2>Add Work</h2>
             <label>Workorder Number</label>
             <input
                 type="text"
@@ -131,26 +130,57 @@ function AddworkForm({ onSave, onCancel, }) {
 }
 
 function WorkTable({ workItems }) {
-    console.log("Here are the workItems: ", workItems)
     return (
-        <div>
-            <h2>Work Items</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {workItems.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.description}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
-}
+    <div>
+        <table className="passdownTable">
+                            <thead>
+                                <tr>
+                                    <th>WO#</th>
+                                    <th>Descritption</th>
+                                    <th>Booked Labor</th>
+                                    <th>Status</th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* {searchResults.filter((entry) => entry.tech === techs).map((entry) => (
+                                    entry.workorder.map((wo) => (
+                                        <tr key={wo.workorder}>
+                                            <td>{wo.workorder}</td>
+                                            <td>{wo.description}</td>
+                                            <td>{wo.bookedLabor}</td>
+                                            <td style={{ backgroundColor: statusColor(wo.status) }}>{wo.status}</td>
+                                            <td>{wo.comments}</td>
+
+                                        </tr>
+                                    ))
+                                ))} */}
+                            </tbody>
+                        </table>
+    </div>
+)}
 
 export default CreatePassdown;
+
+
+// console.log("Here are the workItems: ", workItems)
+//     return (
+//         <div>
+//             <h2>Work Items</h2>
+//             <table>
+//                 <thead>
+//                     <tr>
+//                         <th>Description</th>
+//                     </tr>
+//                 </thead>
+//                 <tbody>
+//                     {workItems.map((item, index) => (
+//                         <tr key={index}>
+//                             <td>{item.description}</td>
+//                         </tr>
+//                     ))}
+//                 </tbody>
+//             </table>
+//         </div>
+//     );
+// }
