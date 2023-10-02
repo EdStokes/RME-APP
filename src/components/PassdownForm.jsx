@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import AddworkForm from "./AddworkForm";
 
 
 
 
 
-function PassdownForm({techs, passdown, currentPassdown} ) {
+function PassdownForm({ techs, passdown, currentPassdown }) {
     const [selectedTech, setSelectedTech] = useState("");
     const [date, setDate] = useState("");
     const [timeIn, setTimeIn] = useState("");
