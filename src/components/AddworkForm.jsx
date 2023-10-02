@@ -1,34 +1,34 @@
 import React, {useEffect, useState} from "react";
 
 
-function AddworkForm({ onSave, onCancel, tech }) {
+function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
     console.log("Tech Name:", tech)
-    const [workDescription, setWorkDescription] = useState("");
+    const [workorderNumber, setWorkorderNumber] = useState("");
     const [isDescriptionEmpty, setIsDescriptionEmpty] = useState(false);
-
+    
     const handleSaveWorkButtonClick = () => {
-        if (workDescription.trim() === "") {
+        if (workorderNumber.trim() === "") {
             setIsDescriptionEmpty(true);
             return;
         }
 
         const workItem = {
-            description: workDescription,
+            wo: parseInt(workorderNumber),
+            description: "",
+            bookedLabor: 0,
+            status: "",
+            comments: ""
         }
 
-        onSave(workItem);
-
-        setWorkDescription("");
-        setIsDescriptionEmpty(false)
-    };
-
+        passdown([...currentPassdown, workItem]);
+    }
     return (
         <div>
             <label>Workorder Number</label>
             <input
                 type="text"
-                value={workDescription}
-                onChange={(event) => setWorkDescription(event.target.value)} />
+                value={workorderNumber}
+                onChange={(event) => setWorkorderNumber(event.target.value)} />
             <button onClick={(event) => handleSaveWorkButtonClick(event)}>Save</button>
             <button onClick={onCancel}>Cancel</button>
         </div>
@@ -36,3 +36,4 @@ function AddworkForm({ onSave, onCancel, tech }) {
 }
 
 export default AddworkForm;
+

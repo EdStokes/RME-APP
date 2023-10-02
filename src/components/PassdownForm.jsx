@@ -5,13 +5,20 @@ import AddworkForm from "./AddworkForm";
 
 
 
-function PassdownForm({techs}) {
+function PassdownForm({techs, passdown, currentPassdown} ) {
     const [selectedTech, setSelectedTech] = useState("");
     const [date, setDate] = useState("");
     const [timeIn, setTimeIn] = useState("");
     const [timeOut, setTimeOut] = useState("");
     const [workItems, setWorkItems] = useState([]);
     const [isAddingWork, setIsAddingWork] = useState(false);
+    const [currentData, setCurrentData] = useState([{
+        wo: 0,
+        description: "",
+        bookedLabor: 0,
+        status: "",
+        comments: ""
+    }])
 
 
     const handleSaveWorkItem = (workItem) => {
@@ -29,11 +36,6 @@ function PassdownForm({techs}) {
         };
 
         setWorkItems([...workItems, passdownInfo]);
-
-        setSelectedTech("");
-        setDate("");
-        setTimeIn("");
-        setTimeOut("");
     };
 
     const toggleAddWorkForm = () => {
@@ -47,7 +49,7 @@ function PassdownForm({techs}) {
                     <label>Tech</label>
                     <select value={selectedTech} onChange={(event) => setSelectedTech(event.target.value)}>
                         {techs.map((tech) => (
-                            <option key={tech.id} value={tech.name}>{tech.name}</option>
+                            <option key={tech.name} value={tech.name}>{tech.name}</option>
                         ))}
                     </select>
                     <label>Date: </label>
@@ -63,8 +65,10 @@ function PassdownForm({techs}) {
 
             {isAddingWork && (
                 <AddworkForm
-                    onSave={handleSaveWorkItem}
-                    onCancel={toggleAddWorkForm} />
+                    // onSave={handleSaveWorkItem}
+                    onCancel={toggleAddWorkForm}
+                    passdown={passdown}
+                    currentPassdown={currentPassdown} />
             )}
 
         </div>

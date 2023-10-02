@@ -8,6 +8,12 @@ import { useHistory } from "react-router-dom"
 
 function CreatePassdown() {
     const [techData, setTechData] = useState([]);
+    const [currentPassdown, setCurrentPassdown] = useState([])
+
+    function passdownData(data) {
+        setCurrentPassdown(data)
+    }
+
     useEffect(() => {
         fetch("http://localhost:4000/techs")
             .then((response) => response.json())
@@ -16,22 +22,17 @@ function CreatePassdown() {
             });
     }, []);
 
-
-    const [workItems, setWorkItems] = useState([]);
-    const handleSaveWorkItem = (workItem) => {
-        setWorkItems([...workItems, workItem])
-    };
     return (
         <div>
-            <PassdownForm onSave={handleSaveWorkItem} techs={techData}/>
+            <PassdownForm  techs={techData} passdown={passdownData} currentPassdown={currentPassdown}/>
             <div className="workTableContainer">
-                <WorkTable workItems={workItems} />
+                <WorkTable currentPassdown={currentPassdown}/>
             </div>
         </div>
     )
 }
 
-function WorkTable({ workItems }) {
+function WorkTable({currentPassdown}) {
     return (
     <div>
         <table className="passdownTable">
@@ -45,18 +46,15 @@ function WorkTable({ workItems }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {searchResults.filter((entry) => entry.tech === techs).map((entry) => (
-                                    entry.workorder.map((wo) => (
-                                        <tr key={wo.workorder}>
-                                            <td>{wo.workorder}</td>
-                                            <td>{wo.description}</td>
-                                            <td>{wo.bookedLabor}</td>
-                                            <td style={{ backgroundColor: statusColor(wo.status) }}>{wo.status}</td>
-                                            <td>{wo.comments}</td>
-
+                                {currentPassdown.map((entry) => (
+                                        <tr key={entry.wo}>
+                                            <td>{entry.wo}</td>
+                                            <td>{entry.description}</td>
+                                            <td>{entry.bookedLabor}</td>
+                                            <td>{entry.status}</td>
+                                            <td>{entry.comments}</td>
                                         </tr>
-                                    ))
-                                ))} */}
+                                ))}
                             </tbody>
                         </table>
     </div>
