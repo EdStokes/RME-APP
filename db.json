@@ -75,37 +75,29 @@
     ],
     "techs": [
         {
+            "id": 1,
             "name": "John doe",
             "userName": "johndoe"
         },
         {
-            "name": "Ed Stokes",
-            "userName": "garystok"
+            "id": 2,
+            "name": "Superman",
+            "userName": "manofsteel"
         },
         {
+            "id": 3,
             "name": "Batman",
             "userName": "darknight"
         }
     ],
-    "shiftInfo": [
+    "siteInfo": [
         {
-            "name": "John Doe",
-            "shift": "FHD",
-            "timeIn": 1200,
-            "timeOut": 2230
-        },
-        {
-            "name": "Ed Stokes",
-            "shift": "FHD",
-            "timeIn": 530,
-            "timeOut": 1600
+            "siteName": "STN1",
+            "city": "Nashville",
+            "state": "Tn",
+            "rmm": "Tony Stark",
+            "amm": "Professor X"
         }
-    ],
-    "safety": [
-        {
-            "saftyTopic": "safety topic of the day",
-            "standardOfWork": "Standards of work",
-            "signOffRequired": "true"
-        }
-    ]
+        
+    ]  
 }

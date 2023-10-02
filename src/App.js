@@ -5,26 +5,15 @@ import SearchPassdown from "./components/SearchPassdown";
 import Passdown from "./components/Passdown";
 import CreatePassdown from "./components/CreatePassdown";
 import React, { useEffect, useState } from "react";
-// import PassdownForm from "./components/PassdownForm";
-
-
 
 function App() {
-
-  const [techs, setTechs] = useState([]);
-  const [currentPassdown, setCurrentPassdown] = useState({});
-
-  function handleTechs(techs) {
-    setTechs(techs)
-  }
-
 
   return (
     <div>
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home techs={techs} onTechUpdate={handleTechs} />
+          <Home />
         </Route>
         <Route exact path="/Passdown">
           <Passdown />
@@ -43,3 +32,4 @@ function App() {
 }
 
 export default App;
+
