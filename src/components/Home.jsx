@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TechEditor from "./TechEditor";
 import logo from '../logo.jpeg';
 
+
 function Home() {
     const [siteTechs, setSiteTechs] = useState([]);
     const [siteInfo, setSiteInfo] = useState([]);
@@ -10,16 +11,18 @@ function Home() {
 
     useEffect(() => {
         fetchTechData();
-        fetchSiteInfo();
-    },[]);
+    }, []);
 
+    useEffect(() => {
+        fetchSiteInfo()
+    },[])
 
     const fetchTechData = () => {
         fetch("http://localhost:4000/techs")
-        .then((response) => response.json())
-        .then((data) => {
-            setSiteTechs(data)
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                setSiteTechs(data)
+            });
     }
 
     const fetchSiteInfo = () => {
@@ -29,11 +32,15 @@ function Home() {
                 setSiteInfo(data)
             });
     }
-   
-const handleEditTechs = () => {
-    console.log("Edit button was clicked")
-    setIsEditingTechs(!isEditingTechs);
-}
+
+    const handleEditTechs = () => {
+        console.log("Edit button was clicked")
+        setIsEditingTechs(!isEditingTechs);
+    }
+
+    const handleTechUpdate = (newTechs) => {
+        setSiteTechs((siteTechs) => [...siteTechs, newTechs])
+    }
 
     return (
         <div>
@@ -45,7 +52,7 @@ const handleEditTechs = () => {
             <ul>
                 {siteInfo.map((info) => (
                     <><li key={info.id}>Regional Manager: {info.rmm}</li>
-                        <li key={info.name}>Maintenance Manerger: {info.amm}</li></>
+                        <li key={info.id}>Maintenance Manerger: {info.amm}</li></>
                 ))}
             </ul>
             <h1>STN1 Techs</h1>
@@ -56,7 +63,7 @@ const handleEditTechs = () => {
             </ul>
             <button onClick={handleEditTechs}>Edit Techs</button>
             {isEditingTechs && (
-                <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} fetchTechData={fetchTechData} />
+                <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} handleTechUpdate={handleTechUpdate} />
             )}
 
 

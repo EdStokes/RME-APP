@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import AddworkForm from "./AddworkForm";
 
 
-
-
-
 function PassdownForm({ techs, passdown, currentPassdown }) {
     const [selectedTech, setSelectedTech] = useState("");
     const [date, setDate] = useState("");
@@ -19,7 +16,6 @@ function PassdownForm({ techs, passdown, currentPassdown }) {
         status: "",
         comments: ""
     }])
-
 
     const handleSaveWorkItem = (workItem) => {
         setWorkItems([...workItems, workItem])

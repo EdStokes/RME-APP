@@ -224,8 +224,16 @@
  }
 
  .techEditor {
-   background-color: white;
-   color: black;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 20px;
+   height: auto;
+   background-color:  #82eefd;
+   border: 1px solid black;
+   border-radius: 3px;
+   box-shadow: 4px 6px 6px black;
  }
 
  
