@@ -7,24 +7,32 @@ function Home() {
     const [siteInfo, setSiteInfo] = useState([]);
     const [isEditingTechs, setIsEditingTechs] = useState(false);
 
-    useEffect(() => {
-        fetch("http://localhost:4000/techs")
-            .then((response) => response.json())
-            .then((data) => {
-                setSiteTechs(data)
-            })
-    }, []);
 
     useEffect(() => {
+        fetchTechData();
+        fetchSiteInfo();
+    },[]);
+
+
+    const fetchTechData = () => {
+        fetch("http://localhost:4000/techs")
+        .then((response) => response.json())
+        .then((data) => {
+            setSiteTechs(data)
+        });
+    }
+
+    const fetchSiteInfo = () => {
         fetch("http://localhost:4000/siteInfo")
             .then((response) => response.json())
             .then((data) => {
                 setSiteInfo(data)
-            })
-    }, []);
-
+            });
+    }
+   
 const handleEditTechs = () => {
-    setIsEditingTechs(true);
+    console.log("Edit button was clicked")
+    setIsEditingTechs(!isEditingTechs);
 }
 
     return (
@@ -36,26 +44,21 @@ const handleEditTechs = () => {
             <h1>STN1 Managers</h1>
             <ul>
                 {siteInfo.map((info) => (
-                    <><li key={info.rmm}>Regional Manager: {info.rmm}</li>
-                        <li key={info.amm}>Maintenance Manerger: {info.amm}</li></>
+                    <><li key={info.id}>Regional Manager: {info.rmm}</li>
+                        <li key={info.name}>Maintenance Manerger: {info.amm}</li></>
                 ))}
             </ul>
             <h1>STN1 Techs</h1>
             <ul>
                 {siteTechs.map((tech) => (
-                    <li>{tech.name}</li>
+                    <li key={tech.name}>{tech.name}</li>
                 ))}
             </ul>
-            <button onClick={handleEditTechs}>Edit Techs</button>
-
+            <button onClick={handleEditTechs}>Add Tech</button>
             {isEditingTechs && (
-                <TechEditor siteTechs={siteTechs} onClose={() => setIsEditingTechs(false)} />
+                <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} />
             )}
 
-
-            <p>Add site info here address, contact info(Site lead, Regional AMM, site AMM
-                Needs to populate from component
-            </p>
 
 
         </div>
