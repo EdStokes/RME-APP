@@ -54,9 +54,9 @@ const handleEditTechs = () => {
                     <li key={tech.name}>{tech.name}</li>
                 ))}
             </ul>
-            <button onClick={handleEditTechs}>Add Tech</button>
+            <button onClick={handleEditTechs}>Edit Techs</button>
             {isEditingTechs && (
-                <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} />
+                <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} fetchTechData={fetchTechData} />
             )}
 
 

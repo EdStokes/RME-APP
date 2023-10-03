@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import {useHistory} from "react-router-dom";
 
 
-function TechEditor({ siteTechs, onClose }) {
+
+function TechEditor({ siteTechs, onClose, fetchTechData}) {
     const history = useHistory();
     const [newTech, setNewTech] = useState({name: "", userName: ""});
 
@@ -28,13 +29,27 @@ function TechEditor({ siteTechs, onClose }) {
     .then((response) => response.json())
     .then((data) => {
         if(data && data.id) {
+            fetchTechData();
         onClose();
         history.push("/")
     }
+    })   
+}
+const handleDeleteTech = (techId) => {
+    fetch(`http://localhost:4000/techs/${techId}`, {
+        method: "DELETE"
     })
+   .then((response) => {
+    if (response.status === 200) {
+        fetchTechData();
+    }else {
+        console.error("Failed to delete tech")
+    }
+   })
 }
 
     return (
+        
         <div className="techEditor">
             <h2>Edit Techs</h2>
             <form onSubmit={handleSubmit}>
@@ -57,8 +72,16 @@ function TechEditor({ siteTechs, onClose }) {
                 <button type="submit">Add Tech</button>
                 <button onClick={onClose}>Close</button>
             </form>
+            <h2>Delete Techs</h2>
+            <ul>
+                {siteTechs.map((tech) => (
+                    <li key={tech.id}>{tech.name}
+                    <button onClick={() => handleDeleteTech(tech.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
         </div>
-    )
+    );
 }
 
 
