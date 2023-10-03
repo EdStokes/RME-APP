@@ -72,7 +72,8 @@ function TechEditor({ siteTechs, onClose, handleTechUpdate }) {
             <h2>Delete Techs</h2>
             <ul>
                 {siteTechs.map((tech) => (
-                    <li key={tech.id}>{tech.name}
+                    <li key={tech.id}>
+                        {tech.name}
                         <button onClick={() => handleDeleteTech(tech.id)}>Delete</button>
                     </li>
                 ))}

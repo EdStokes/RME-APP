@@ -11,11 +11,9 @@ function Home() {
 
     useEffect(() => {
         fetchTechData();
+        fetchSiteInfo();
     }, []);
 
-    useEffect(() => {
-        fetchSiteInfo()
-    },[])
 
     const fetchTechData = () => {
         fetch("http://localhost:4000/techs")
@@ -40,6 +38,7 @@ function Home() {
 
     const handleTechUpdate = (newTechs) => {
         setSiteTechs((siteTechs) => [...siteTechs, newTechs])
+        fetchTechData();
     }
 
     return (
@@ -58,7 +57,7 @@ function Home() {
             <h1>STN1 Techs</h1>
             <ul>
                 {siteTechs.map((tech) => (
-                    <li key={tech.name}>{tech.name}</li>
+                    <li key={tech.id}>{tech.name}</li>
                 ))}
             </ul>
             <button onClick={handleEditTechs}>Edit Techs</button>

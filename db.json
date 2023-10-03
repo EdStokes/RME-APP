@@ -75,16 +75,6 @@
   ],
   "techs": [
     {
-      "id": 2,
-      "name": "Superman",
-      "userName": "manofsteel"
-    },
-    {
-      "id": 3,
-      "name": "Batman",
-      "userName": "darknight"
-    },
-    {
       "name": "Ed Stokes",
       "userName": "edstokes2",
       "id": 5
@@ -98,6 +88,16 @@
       "name": "Robin",
       "userName": "boywonder",
       "id": 7
+    },
+    {
+      "name": "Superman",
+      "userName": "manofsteel",
+      "id": 8
+    },
+    {
+      "name": "Batman",
+      "userName": "darknight",
+      "id": 9
     }
   ],
   "siteInfo": [
