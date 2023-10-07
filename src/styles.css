@@ -60,6 +60,7 @@
     padding: 15px;
  }
 
+
  .techList {
     background-color: #52b2bf;
  }
@@ -186,7 +187,7 @@
     align-items: center;
     padding: 10px 20px;
     height: auto;
-    background-color:  #82eefd;
+    background-color: #82eefd;
     border: 1px solid black;
     border-radius: 3px;
     box-shadow: 4px 6px 6px black;
@@ -209,33 +210,59 @@
     padding-left: 200px;
  }
 
- .homeTitle, img {
-   width: 200px;
- }
 
  div.passdownSearchHeader {
-   display: flex;
-   flex-direction: column;
-   margin-left: 20px;
-   margin-right: 90%;
-   padding: 5px;
-   
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 90%;
+    padding: 5px;
+
+    background-color: white;
+ }
+
+
+
+ .home {
+    display: flex;
+    flex-direction: column;
+ }
+
+ .homeTitle {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+
+ }
+ .staffInfo {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    padding-left: 40px;
+
+ }
+
+ .managers {
+   padding: 30px;
+   margin-right: 50px;
+ }
+
+ .techs {
+   padding-left: 70%;
    background-color: white;
  }
+ 
 
  .techEditor {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: center;
-   padding: 10px 20px;
-   height: auto;
-   background-color:  #82eefd;
-   border: 1px solid black;
-   border-radius: 3px;
-   box-shadow: 4px 6px 6px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: auto;
+    background-color: #82eefd;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 4px 6px 6px black;
  }
-
- 
-
- 

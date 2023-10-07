@@ -42,28 +42,36 @@ function Home() {
     }
 
     return (
-        <div>
-            <h1 className="homeTitle">Welcome to STN1</h1>
-            <img src={logo} alt="Site Logo" className="homeLogo" />
+        <div className="home">
 
+            <div className="homeTitle">
+                <img src={logo} alt="Site Logo" className="homeLogo" />
+                <h1>Welcome to STN1</h1>
+            </div>
 
-            <h1>STN1 Managers</h1>
-            <ul>
-                {siteInfo.map((info) => (
-                    <><li key={info.id}>Regional Manager: {info.rmm}</li>
-                        <li key={info.id}>Maintenance Manerger: {info.amm}</li></>
-                ))}
-            </ul>
-            <h1>STN1 Techs</h1>
-            <ul>
-                {siteTechs.map((tech) => (
-                    <li key={tech.id}>{tech.name}</li>
-                ))}
-            </ul>
-            <button onClick={handleEditTechs}>Edit Techs</button>
-            {isEditingTechs && (
-                <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} handleTechUpdate={handleTechUpdate} />
-            )}
+            <div className="staffInfo">
+                <div className="managers">
+                    <h1>STN1 Managers</h1>
+                    <ul>
+                        {siteInfo.map((info) => (
+                            <><li key={info.id}>Regional Manager: {info.rmm}</li>
+                                <li key={info.id}>Maintenance Manerger: {info.amm}</li></>
+                        ))}
+                    </ul>
+                </div>
+                <div classsName="techs">
+                    <h1>STN1 Techs</h1>
+                    <ul>
+                        {siteTechs.map((tech) => (
+                            <li key={tech.id}>{tech.name}</li>
+                        ))}
+                    </ul>
+                    <button onClick={handleEditTechs}>Edit Techs</button>
+                    {isEditingTechs && (
+                        <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} handleTechUpdate={handleTechUpdate} />
+                    )}
+                </div>
+            </div>
 
 
 
