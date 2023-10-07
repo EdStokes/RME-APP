@@ -22,6 +22,10 @@ function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
         }
 
         passdown([...currentPassdown, workItem]);
+
+        onCancel()
+
+
     }
     return (
         <div>
@@ -34,7 +38,7 @@ function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
             <input
                 type="text"
                 onChange={(event) => setWorkorderDescription(event.target.value)} />
-            <button onClick={(event) => handleSaveWorkButtonClick(event)}>Save</button>
+            <button onClick={(event) => handleSaveWorkButtonClick(event)}>Add to Table</button>
             <button onClick={onCancel}>Cancel</button>
         </div>
     );
