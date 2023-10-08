@@ -14,11 +14,11 @@ function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
         }
 
         const workItem = {
-            wo: parseInt(workorderNumber),
+            wo: workorderNumber,
             description: workorderDescription,
-            bookedLabor: 0,
+            bookedLabor: "0",
             status: "Open",
-            comments: ""
+            comments: "(add comments here)"
         }
 
         passdown([...currentPassdown, workItem]);

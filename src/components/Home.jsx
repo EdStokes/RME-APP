@@ -59,7 +59,7 @@ function Home() {
                         ))}
                     </ul>
                 </div>
-                <div classsName="techs">
+                <div className="techs">
                     <h1>STN1 Techs</h1>
                     <ul>
                         {siteTechs.map((tech) => (

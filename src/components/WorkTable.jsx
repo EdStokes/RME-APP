@@ -4,7 +4,6 @@ import CreatePassdown from "./CreatePassdown";
 
 function WorkTable({ currentPassdown, setCurrentPassdown }) {
     const [editedIndex, setEditedIndex] = useState(null);
-    // const [editedValue, setEditedValue] = useState(Array(currentPassdown.length).fill(''));
     const [editedValue, setEditedValue] = useState(currentPassdown.map(entry => ({...entry})));
     console.log(currentPassdown)
 

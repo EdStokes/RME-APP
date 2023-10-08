@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import AddworkForm from "./AddworkForm";
 
 
-function PassdownForm({ techs, passdown, currentPassdown }) {
+function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
+    
     const [selectedTech, setSelectedTech] = useState("");
     const [date, setDate] = useState("");
     const [timeIn, setTimeIn] = useState("");
@@ -10,9 +11,9 @@ function PassdownForm({ techs, passdown, currentPassdown }) {
     const [workItems, setWorkItems] = useState([]);
     const [isAddingWork, setIsAddingWork] = useState(false);
     const [currentData, setCurrentData] = useState([{
-        wo: 0,
+        wo: "00000000",
         description: "",
-        bookedLabor: 0,
+        bookedLabor: "",
         status: "",
         comments: ""
     }])
@@ -25,15 +26,14 @@ function PassdownForm({ techs, passdown, currentPassdown }) {
         event.preventDefault();
 
         const passdownInfo = {
-            tech: selectedTech,
-            date,
-            timeIn,
-            timeOut,
+             date: date,
+             selectedTech,
+             timeIn: timeIn,
+             timeOut: timeOut,
         };
-
-        setWorkItems([...workItems, passdownInfo]);
+        console.log("this is the passdownInfo", passdownInfo)
+        shiftInfo([passdownInfo]);
     };
-
     const toggleAddWorkForm = () => {
         setIsAddingWork(!isAddingWork);
     };
@@ -44,6 +44,7 @@ function PassdownForm({ techs, passdown, currentPassdown }) {
                 <div className="passdownHeaderTop">
                     <label>Tech</label>
                     <select value={selectedTech} onChange={(event) => setSelectedTech(event.target.value)}>
+                        <option value="">Select a Tech</option>
                         {techs.map((tech) => (
                             <option key={tech.name} value={tech.name}>{tech.name}</option>
                         ))}
@@ -55,7 +56,7 @@ function PassdownForm({ techs, passdown, currentPassdown }) {
                     <label>Time Out: </label>
                     <input type="time" value={timeOut} onChange={(event) => setTimeOut(event.target.value)} />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" onClick={handleSubmit}>Submit Shit Info</button>
                 <button onClick={toggleAddWorkForm}>Add Workorder</button>
             </form>
 
