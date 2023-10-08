@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SearchPassdownTable from "./SearchPassdownTable";
 
 
 function SearchPassdown() {
@@ -18,7 +19,6 @@ function SearchPassdown() {
     }, []);
 
     function handleSearch() {
-        console.log("this is the search date", searchDate)
         const filteredData = searchData.filter((entry) => {
             const isDateMatch = searchDate === "" || entry.date === searchDate;
             const isTechMatch = techs === "" || entry.tech === techs;
@@ -29,6 +29,8 @@ function SearchPassdown() {
 
 
         setSearchResults(filteredData);
+    
+    
     };
 
     function statusColor(status) {
@@ -46,7 +48,7 @@ function SearchPassdown() {
                 <form>
                     <label>
                         Date:
-                        <input type="text" value={searchDate} placeholder="mm/dd/yyyy"
+                        <input type="date" value={searchDate} placeholder="mm/dd/yyyy"
                             onChange={(event) => { const selectedDate = event.target.value; setSearchDate(selectedDate) }} />
                         <option value=""></option>
                     </label>
@@ -84,33 +86,13 @@ function SearchPassdown() {
                                         <p>Time Out: {entry.timeOut}</p>
                                         <p>Booked Hours: {entry.bookedHours}</p>
                                     </div>
-                                ))}
+                                ))} 
                         </div>
-                        <table className="passdownTable">
-                            <thead>
-                                <tr>
-                                    <th>WO#</th>
-                                    <th>Descritption</th>
-                                    <th>Booked Labor</th>
-                                    <th>Status</th>
-                                    <th>Comments</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {searchResults.filter((entry) => entry.tech === techs).map((entry) => (
-                                    entry.workorder.map((wo) => (
-                                        <tr key={wo.workorder}>
-                                            <td>{wo.workorder}</td>
-                                            <td>{wo.description}</td>
-                                            <td>{wo.bookedLabor}</td>
-                                            <td style={{ backgroundColor: statusColor(wo.status) }}>{wo.status}</td>
-                                            <td>{wo.comments}</td>
-
-                                        </tr>
-                                    ))
-                                ))}
-                            </tbody>
-                        </table>
+                        <div>
+                            {console.log(searchResults)}
+                        <SearchPassdownTable tableData={searchResults} />
+                        </div>   
+                       
                     </div>
                 ) : (
                     <h1>No serach results to display</h1>
@@ -122,3 +104,6 @@ function SearchPassdown() {
 }
 
 export default SearchPassdown;
+
+
+

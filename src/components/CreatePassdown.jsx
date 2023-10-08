@@ -74,9 +74,3 @@ function CreatePassdown() {
 export default CreatePassdown;
 
 
-// const [shiftData, setShiftData] = useState({
-//     date: "",
-//     tech: "",
-//     timeIn: "",
-//     timeOut: "",
-// })
