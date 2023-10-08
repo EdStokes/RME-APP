@@ -290,3 +290,33 @@
       margin-left: 42%;
       margin-top: 10px;
  }
+
+ .searchPassdownMain {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .searchPassdownTitle {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   padding: 20px;
+ }
+
+ .searchPassdownForm {
+   margin-left: 30px;
+ }
+
+ .resultsSearch {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   padding: 20px;
+ }
+
+ .noResultsDisplay {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   padding: 20px;
+ }

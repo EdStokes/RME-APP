@@ -28,18 +28,20 @@ function SearchPassdown() {
         setSearchResults(filteredData);
     };
 
-    function statusColor(status) {
-        if (status === "Completed") {
-            return "green"
-        } else if (status === "In-Progress") {
-            return "yellow"
-        }
-    }
+    // function statusColor(status) {
+    //     if (status === "Completed") {
+    //         return "green"
+    //     } else if (status === "In-Progress") {
+    //         return "yellow"
+    //     }
+    // }
 
     return (
-        <div>
-            <div>
+        <div className="searchPassdownMain">
+            <div className="searchPassdownTitle">
                 <h2>Search Passdowns</h2>
+            </div>
+            <div className="searchPassdownForm"> 
                 <form>
                     <label>
                         Date:
@@ -60,6 +62,8 @@ function SearchPassdown() {
                     </label>
                     <button type="button" onClick={handleSearch}>Search</button>
                 </form>
+                </div>
+                <div className="resultsSearch">
                 <h3>Search Results for: </h3>
                 <ul>
                     {searchResults.map((entry) => (
@@ -89,7 +93,7 @@ function SearchPassdown() {
                        
                     </div>
                 ) : (
-                    <h1>No serach results to display</h1>
+                    <h1 className="noResultsDisplay">No serach results to display</h1>
                 )}
             </div>
         </div>
