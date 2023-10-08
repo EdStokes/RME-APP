@@ -5,7 +5,6 @@ import CreatePassdown from "./CreatePassdown";
 function WorkTable({ currentPassdown, setCurrentPassdown }) {
     const [editedIndex, setEditedIndex] = useState(null);
     const [editedValue, setEditedValue] = useState(currentPassdown.map(entry => ({...entry})));
-    console.log(currentPassdown)
 
     const handleEditChange = (event, index, columnName) => {
         const newEditedValues = [...editedValue];
@@ -35,9 +34,6 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
                 return [...prevState.slice(0, index), newValue, ...prevState.slice(index + 1)];
             })
         }
-
-    console.log("This is the data ready to push: ", currentPassdown);
-    console.log("edited index: ", editedIndex)
 
     return (
         <div>

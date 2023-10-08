@@ -32,7 +32,6 @@ function Home() {
     }
 
     const handleEditTechs = () => {
-        console.log("Edit button was clicked")
         setIsEditingTechs(!isEditingTechs);
     }
 
@@ -66,7 +65,7 @@ function Home() {
                             <li key={tech.id}>{tech.name}</li>
                         ))}
                     </ul>
-                    <button onClick={handleEditTechs}>Edit Techs</button>
+                    <button className="techEditButton" onClick={handleEditTechs}>Edit Techs</button>
                     {isEditingTechs && (
                         <TechEditor siteTechs={siteTechs} onClose={handleEditTechs} handleTechUpdate={handleTechUpdate} />
                     )}

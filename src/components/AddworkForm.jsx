@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 
 function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
-    console.log("Tech Name:", tech)
     const [workorderNumber, setWorkorderNumber] = useState("");
     const [workorderDescription, setWorkorderDescription] = useState("")
     const [isDescriptionEmpty, setIsDescriptionEmpty] = useState(false);

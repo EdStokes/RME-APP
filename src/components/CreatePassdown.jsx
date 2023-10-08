@@ -9,8 +9,6 @@ function CreatePassdown() {
     const [techData, setTechData] = useState([]);
     const [currentPassdown, setCurrentPassdown] = useState([])
     const [shiftData, setShiftData] = useState([{}])
-    console.log("the is the data that needs to be sent", currentPassdown)
-    console.log("this is the shift data that needs to be set", shiftData)
 
     function passdownData(data) {
         setCurrentPassdown(data)
@@ -43,7 +41,6 @@ function CreatePassdown() {
             comments: work.comments,
         })),  
     }
-        console.log(passdownPost);
 
         fetch("http://localhost:4000/passdowns", {
             method: "POST",
@@ -56,6 +53,7 @@ function CreatePassdown() {
         .then((respones) => respones.json())
         .then((data) => {
             alert("Passdown was added to JSON")
+            setCurrentPassdown([]);
         })
     }
 
@@ -65,7 +63,7 @@ function CreatePassdown() {
             <div className="workTableContainer">
                 <WorkTable currentPassdown={currentPassdown} setCurrentPassdown={setCurrentPassdown} />
             </div>
-            <button onClick={() => sendPassdown(shiftData, currentPassdown)}>submit passdown</button>
+            <button className="sendPassdownButton" onClick={() => sendPassdown(shiftData, currentPassdown)}>submit passdown End of Shift Passdown</button>
         </div>
     )
 }

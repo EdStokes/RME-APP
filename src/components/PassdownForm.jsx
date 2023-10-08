@@ -8,19 +8,7 @@ function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
     const [date, setDate] = useState("");
     const [timeIn, setTimeIn] = useState("");
     const [timeOut, setTimeOut] = useState("");
-    const [workItems, setWorkItems] = useState([]);
     const [isAddingWork, setIsAddingWork] = useState(false);
-    const [currentData, setCurrentData] = useState([{
-        wo: "00000000",
-        description: "",
-        bookedLabor: "",
-        status: "",
-        comments: ""
-    }])
-
-    const handleSaveWorkItem = (workItem) => {
-        setWorkItems([...workItems, workItem])
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -31,7 +19,6 @@ function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
              timeIn: timeIn,
              timeOut: timeOut,
         };
-        console.log("this is the passdownInfo", passdownInfo)
         shiftInfo([passdownInfo]);
     };
     const toggleAddWorkForm = () => {
@@ -56,13 +43,12 @@ function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
                     <label>Time Out: </label>
                     <input type="time" value={timeOut} onChange={(event) => setTimeOut(event.target.value)} />
                 </div>
-                <button type="submit" onClick={handleSubmit}>Submit Shit Info</button>
+                {/* <button type="submit" onClick={handleSubmit}>Submit Shit Info</button> */}
                 <button onClick={toggleAddWorkForm}>Add Workorder</button>
             </form>
 
             {isAddingWork && (
                 <AddworkForm
-                    // onSave={handleSaveWorkItem}
                     onCancel={toggleAddWorkForm}
                     passdown={passdown}
                     currentPassdown={currentPassdown} />

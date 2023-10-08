@@ -25,12 +25,7 @@ function SearchPassdown() {
             return isDateMatch && isTechMatch
         });
 
-
-
-
         setSearchResults(filteredData);
-    
-    
     };
 
     function statusColor(status) {
@@ -89,7 +84,6 @@ function SearchPassdown() {
                                 ))} 
                         </div>
                         <div>
-                            {console.log(searchResults)}
                         <SearchPassdownTable tableData={searchResults} />
                         </div>   
                        

@@ -57,29 +57,6 @@
     },
     {
       "date": "2023-10-08",
-      "tech": "Ed Stokes",
-      "timeIn": "05:30",
-      "timeOut": "16:00",
-      "wordorder": [
-        {
-          "workorder": "2345678",
-          "description": "A description of the work",
-          "bookedLabor": "0",
-          "status": "Open",
-          "comments": "(add comments here)"
-        },
-        {
-          "workorder": "1111111",
-          "description": "The work that needs to be completed",
-          "bookedLabor": "0",
-          "status": "Open",
-          "comments": "(add comments here)"
-        }
-      ],
-      "id": 206
-    },
-    {
-      "date": "2023-10-08",
       "tech": "Robin",
       "timeIn": "20:20",
       "timeOut": "10:24",
@@ -93,14 +70,57 @@
         }
       ],
       "id": 207
+    },
+    {
+      "date": "2023-10-08",
+      "tech": "Spiderman",
+      "timeIn": "13:00",
+      "timeOut": "18:00",
+      "wordorder": [
+        {
+          "workorder": "555555",
+          "description": "Doing what spiderman does",
+          "bookedLabor": "3",
+          "status": "Open",
+          "comments": "Did what spiderman does"
+        }
+      ],
+      "id": 208
+    },
+    {
+      "date": "2023-10-08",
+      "tech": "The Joker",
+      "timeIn": "07:25",
+      "timeOut": "20:27",
+      "wordorder": [
+        {
+          "workorder": "123456",
+          "description": "Running from the batman",
+          "bookedLabor": "0",
+          "status": "Open",
+          "comments": "(add comments here)"
+        }
+      ],
+      "id": 210
+    },
+    {
+      "date": "2023-10-08",
+      "tech": "Ed Stokes",
+      "timeIn": "09:30",
+      "timeOut": "16:00",
+      "wordorder": [
+        {
+          "workorder": "1233455",
+          "description": "work that needs to be completed",
+          "bookedLabor": "3",
+          "status": "Completed",
+          "comments": "work was completed"
+        }
+      ],
+      "id": 211
     }
   ],
   "techs": [
-    {
-      "name": "Ed Stokes",
-      "userName": "edstokes2",
-      "id": 5
-    },
     {
       "name": "Spiderman",
       "userName": "webmaster",
@@ -122,9 +142,14 @@
       "id": 9
     },
     {
-      "name": "Ed Stokes5",
+      "name": "Ed Stokes",
       "userName": "edstokes5",
       "id": 10
+    },
+    {
+      "name": "The Joker",
+      "userName": "laughsalot",
+      "id": 11
     }
   ],
   "siteInfo": [

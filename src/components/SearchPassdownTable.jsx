@@ -12,8 +12,6 @@ function SearchPassdownTable({tableData}) {
         }
     }
 
-
-
     return (
         <table className="passdownTable">
                             <thead>

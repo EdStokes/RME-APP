@@ -177,6 +177,7 @@
     border-radius: 3px;
     padding: 5px 5px;
     cursor: pointer;
+   margin-right: 41%;
 
  }
 
@@ -235,6 +236,7 @@
     padding: 20px;
 
  }
+
  .staffInfo {
     display: flex;
     flex-direction: row;
@@ -244,25 +246,47 @@
  }
 
  .managers {
-   padding: 30px;
-   margin-right: 50px;
+    padding: 30px;
+    margin-right: 50px;
  }
 
  .techs {
-   padding-left: 70%;
-   background-color: white;
+    padding-left: 30px;
+    margin-left: 40%;
+    margin-top: 25px;
  }
- 
+
 
  .techEditor {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    height: auto;
-    background-color: #82eefd;
-    border: 1px solid black;
-    border-radius: 3px;
+    background-color: white;
+    padding: 20px;
+    width: 75%;
+    margin-left: 10%;
     box-shadow: 4px 6px 6px black;
+    border-radius: 10px;
+    margin-top: 30px;
+ }
+
+ .passdownHomePage {
+    display: flex;
+    flex-direction: column;
+ }
+
+ .createPassdown {
+   margin-left: 40%;
+ }
+
+ .searchPassdown {
+   margin-left: 40%
+ }
+
+ .sendPassdownButton {
+   background-color: red;
+    color: white;
+    border: 1px black;
+    border-radius: 3px;
+    padding: 5px 5px;
+    cursor: pointer;
+      margin-left: 42%;
+      margin-top: 10px;
  }
