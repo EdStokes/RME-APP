@@ -118,6 +118,29 @@
         }
       ],
       "id": 211
+    },
+    {
+      "date": "2023-10-08",
+      "tech": "Ed Stokes2",
+      "timeIn": "20:40",
+      "timeOut": "23:43",
+      "wordorder": [
+        {
+          "workorder": "1111111",
+          "description": "Work to be completed",
+          "bookedLabor": "3",
+          "status": "Closed",
+          "comments": "work was completed"
+        },
+        {
+          "workorder": "222222",
+          "description": "Work that needs to be completed",
+          "bookedLabor": "0",
+          "status": "Open",
+          "comments": "(add comments here)"
+        }
+      ],
+      "id": 212
     }
   ],
   "techs": [

@@ -175,9 +175,10 @@
     color: white;
     border: 1px black;
     border-radius: 3px;
-    padding: 5px 5px;
+    padding: 5px 10px;
     cursor: pointer;
    margin-right: 41%;
+   box-shadow: 4px 4px 4px black;
 
  }
 
@@ -218,7 +219,7 @@
     margin-left: 20px;
     margin-right: 90%;
     padding: 5px;
-
+    box-shadow: 4px 4px 4px black;
     background-color: white;
  }
 
@@ -234,7 +235,16 @@
     text-align: center;
     justify-content: center;
     padding: 20px;
+ }
 
+ .techEditButton {
+   background-color:#090c9b;
+   color: white;
+   cursor: pointer;
+   padding: 5px 10px;
+   margin-top: 10px;
+   border-radius: 5px;
+   box-shadow: 4px 4px 4px black;
  }
 
  .staffInfo {
@@ -257,16 +267,6 @@
  }
 
 
- .techEditor {
-    background-color: white;
-    padding: 20px;
-    width: 75%;
-    margin-left: 10%;
-    box-shadow: 4px 6px 6px black;
-    border-radius: 10px;
-    margin-top: 30px;
- }
-
  .passdownHomePage {
     display: flex;
     flex-direction: column;
@@ -285,10 +285,11 @@
     color: white;
     border: 1px black;
     border-radius: 3px;
-    padding: 5px 5px;
+    padding: 5px 10px;
     cursor: pointer;
       margin-left: 42%;
       margin-top: 10px;
+      box-shadow: 4px 4px 4px black;
  }
 
  .searchPassdownMain {
@@ -307,6 +308,18 @@
    margin-left: 30px;
  }
 
+ .searachPassdownButton {
+   background-color:#090c9b;
+   color: white;
+   padding: 5px 10px;
+   cursor: pointer;
+   margin-top: 10px;
+   margin-left: 35px;
+   border-radius: 10px;
+   box-shadow: 4px 4px 4px black;
+
+ }
+
  .resultsSearch {
    display: flex;
    text-align: center;
@@ -320,3 +333,47 @@
    justify-content: center;
    padding: 20px;
  }
+
+ .techEditor {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: white;
+   padding: 10px;
+   width: 75%;
+   margin-left: 10%;
+   box-shadow: 4px 6px 6px black;
+   border-radius: 10px;
+   margin-top: 30px;
+}
+
+ .techEditorButton {
+  
+   background-color: red;
+   cursor: pointer;
+   font-size: xx-small;
+   padding: 2px;
+   margin-left: 10px;
+   border-radius: 10px;
+   border-radius: 10px;
+ }
+
+ .techEditiorClose {
+   background-color:#090c9b;
+   color: white;
+   cursor: pointer;
+   border-radius: 5px;
+ }
+
+.addTechButton {
+   background-color: blue;
+   color: white;
+   cursor: pointer;
+   padding: 3px;
+   margin-top: 10px;
+   border-radius: 5px;
+}
+
+.techEditorForm {
+   padding: 3px;
+}

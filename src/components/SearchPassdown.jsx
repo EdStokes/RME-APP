@@ -60,8 +60,9 @@ function SearchPassdown() {
                             ))}
                         </select>
                     </label>
-                    <button type="button" onClick={handleSearch}>Search</button>
+                    {/* <button type="button" onClick={handleSearch}>Search</button> */}
                 </form>
+                <button className="searachPassdownButton" type="button" onClick={handleSearch}>Search</button>
                 </div>
                 <div className="resultsSearch">
                 <h3>Search Results for: </h3>

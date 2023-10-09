@@ -35,6 +35,16 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
             })
         }
 
+    function statusColor(status) {
+        if (status === "Completed") {
+            return "green"
+        }else if (status === "In-Progress") {
+            return "yellow"
+        }else if (status === "Open") {
+            return "red"
+        }
+    }
+
     return (
         <div>
             <table className="passdownTable">
@@ -92,14 +102,18 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
                                 <span onClick={() => handleEditClick(index, 'bookedLabor')}>{entry.bookedLabor}</span>
                             )}
                            </td>
-                           <td>
+                           <td style={{backgroundColor: statusColor(editedValue[index]?.status)}}>
                             {editedIndex === index ? (
                                <div>
-                                <input
+                                <select
                                     type="text"
                                     value={editedValue[index]?.status || ''}
                                     onChange={(event) => handleEditChange(event, index, 'status')}
-                                    />
+                                    >
+                                    <option value="Open">Open</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="In-Progress">In-Progress</option>
+                                    </select>
                                     <button onClick={() => handleEditSave(index, 'status')}>Save</button>
                                </div> 
                             ) : (
@@ -129,3 +143,4 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
 }
 
 export default WorkTable;
+

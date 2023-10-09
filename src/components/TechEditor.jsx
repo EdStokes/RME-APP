@@ -50,6 +50,7 @@ function TechEditor({ siteTechs, onClose, handleTechUpdate }) {
 
         <div className="techEditor">
             <h2>Edit Techs</h2>
+            <div className="techEditorForm">
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Name: </label>
@@ -67,10 +68,11 @@ function TechEditor({ siteTechs, onClose, handleTechUpdate }) {
                         onChange={handleUserNameChange}
                     />
                 </div>
-                <button type="submit">Add Tech</button>
+                <button className="addTechButton" type="submit">Add Tech</button>
             </form>
+            </div>
             <h2>Delete Techs</h2>
-            <ul>
+            <ul className="techlist">
                 {siteTechs.map((tech) => (
                     <li key={tech.id}>
                         {tech.name}
@@ -78,7 +80,7 @@ function TechEditor({ siteTechs, onClose, handleTechUpdate }) {
                     </li>
                 ))}
             </ul>
-            <button onClick={onClose}>Close</button>
+            <button className="techEditiorClose" onClick={onClose}>Close</button>
         </div>
     );
 }
