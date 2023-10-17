@@ -1,46 +1,72 @@
-import React, {useState} from "react"
-import CreatePassdown from "./CreatePassdown";
+import React, { useEffect, useState } from "react"
+import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
 
 function WorkTable({ currentPassdown, setCurrentPassdown }) {
-    const [editedIndex, setEditedIndex] = useState(null);
-    const [editedValue, setEditedValue] = useState(currentPassdown.map(entry => ({...entry})));
+    const [editedIndices, setEditedIndices] = useState([]);
+    const [intialEditedValues, setIntialEditedValues] = useState(currentPassdown.map(entry => ({ ...entry })))
+
+   useEffect(() => {
+    const savedPassdown = JSON.parse(localStorage.getItem("currentPassdown"));
+    if (savedPassdown) {
+        setCurrentPassdown(savedPassdown);
+        setIntialEditedValues(savedPassdown.map((entry) => ({...entry})));
+    }
+    },[setCurrentPassdown]);
+
+    useEffect(() => {
+        localStorage.setItem("currentPassdown", JSON.stringify(currentPassdown));
+    },[currentPassdown])
+
+    useEffect(() => {
+        setIntialEditedValues(currentPassdown.map(entry => ({...entry})));
+    }, [currentPassdown])
+   
 
     const handleEditChange = (event, index, columnName) => {
-        const newEditedValues = [...editedValue];
-        newEditedValues[index] = {...newEditedValues[index],[columnName]: event.target.value}
-        setEditedValue(newEditedValues);
-        console.log("Edited index has change to: ", editedIndex)
+        const newEditedValues = [...intialEditedValues];
+        newEditedValues[index] = {
+            ...newEditedValues[index],
+            [columnName]: event.target.value,
+        };
+        setEditedIndices([...editedIndices, index]);
+        setIntialEditedValues(newEditedValues)
     };
 
-    const handleEditSave = (index, columnName) => {
-        if (index !== null) {
-            const entry = currentPassdown[index]
-            if (entry) {
+    const handleEditSave = (index) => {
+        if (editedIndices.includes(index)) {
             const updatedPassdown = [...currentPassdown];
-            updatedPassdown[index] = {...updatedPassdown[index], [columnName]: editedValue[index][columnName]};
+            updatedPassdown[index] = { ...intialEditedValues[index] };
             setCurrentPassdown(updatedPassdown);
-            }
+            setEditedIndices(editedIndices.filter(item => item !== index));
         }
-
-        setEditedIndex(null);
     };
 
-        const handleEditClick = (index, columnName) => {
-            setEditedIndex(index)
-            setEditedValue((prevState) => {
-                const newValue = {...prevState[index] };
-                newValue[columnName] = currentPassdown[index][columnName];
-                return [...prevState.slice(0, index), newValue, ...prevState.slice(index + 1)];
-            })
+    const handleEditClick = (index) => {
+        if (!editedIndices.includes(index)) {
+            const newInitialEditedValues = [...intialEditedValues];
+            newInitialEditedValues[index] = {...currentPassdown[index]};
+            setIntialEditedValues(newInitialEditedValues);
+            setEditedIndices([...editedIndices, index]);
         }
+    }
+
+    const handleDeleteClick = (index) => {
+        const newEditedValues = [...intialEditedValues];
+        newEditedValues.splice(index, 1);
+        setIntialEditedValues(newEditedValues)
+
+        const updatedPassdown = [...currentPassdown];
+        updatedPassdown.splice(index, 1);
+        setCurrentPassdown(updatedPassdown)
+    }
 
     function statusColor(status) {
         if (status === "Completed") {
             return "green"
-        }else if (status === "In-Progress") {
+        } else if (status === "In-Progress") {
             return "yellow"
-        }else if (status === "Open") {
+        } else if (status === "Open") {
             return "red"
         }
     }
@@ -60,80 +86,85 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
                 <tbody>
                     {currentPassdown.map((entry, index) => (
                         <tr key={entry.wo}>
-                           <td>
-                            {editedIndex === index ? (
-                               <div>
-                                <input
-                                    type="text"
-                                    value={editedValue[index]?.wo || ''}
-                                    onChange={(event) => handleEditChange(event, index, 'wo')}
-                                    />
-                                    <button onClick={() => handleEditSave(index, 'wo')}>Save</button>
-                               </div> 
-                            ) : (
-                                <span onClick={() => handleEditClick(index, 'wo')}>{entry.wo}</span>
-                            )}
-                           </td>
-                           <td>
-                            {editedIndex === index ? (
-                               <div>
-                                <input
-                                    type="text"
-                                    value={editedValue[index]?.description || ''}
-                                    onChange={(event) => handleEditChange(event, index, 'description')}
-                                    />
-                                    <button onClick={() => handleEditSave(index, 'description')}>Save</button>
-                               </div> 
-                            ) : (
-                                <span onClick={() => handleEditClick(index, 'description')}>{entry.description}</span>
-                            )}
-                           </td>
-                           <td>
-                            {editedIndex === index ? (
-                               <div>
-                                <input
-                                    type="text"
-                                    value={editedValue[index]?.bookedLabor || ''}
-                                    onChange={(event) => handleEditChange(event, index, 'bookedLabor')}
-                                    />
-                                    <button onClick={() => handleEditSave(index, 'bookedLabor')}>Save</button>
-                               </div> 
-                            ) : (
-                                <span onClick={() => handleEditClick(index, 'bookedLabor')}>{entry.bookedLabor}</span>
-                            )}
-                           </td>
-                           <td style={{backgroundColor: statusColor(editedValue[index]?.status)}}>
-                            {editedIndex === index ? (
-                               <div>
-                                <select
-                                    type="text"
-                                    value={editedValue[index]?.status || ''}
-                                    onChange={(event) => handleEditChange(event, index, 'status')}
-                                    >
-                                    <option value="Open">Open</option>
-                                    <option value="Completed">Completed</option>
-                                    <option value="In-Progress">In-Progress</option>
-                                    </select>
-                                    <button onClick={() => handleEditSave(index, 'status')}>Save</button>
-                               </div> 
-                            ) : (
-                                <span onClick={() => handleEditClick(index, 'status')}>{entry.status}</span>
-                            )}
-                           </td>
-                           <td>
-                            {editedIndex === index ? (
-                               <div>
-                                <input
-                                    type="text"
-                                    value={editedValue[index]?.comments || ''}
-                                    onChange={(event) => handleEditChange(event, index, 'comments')}
-                                    />
-                                    <button onClick={() => handleEditSave(index, 'comments')}>Save</button>
-                               </div> 
-                            ) : (
-                                <span onClick={() => handleEditClick(index, 'comments')}>{entry.comments}</span>
-                            )}
-                           </td>
+                            <td>
+                                {editedIndices.includes(index) ? (
+                                    <div>
+                                        <input
+                                            type="text"
+                                            value={intialEditedValues[index]?.wo || ''}
+                                            onChange={(event) => handleEditChange(event, index, "wo")}
+                                        />
+                                    </div>
+                                ) : (
+                                    <span>{entry.wo}</span>
+                                )}
+                            </td>
+                            <td>
+                                {editedIndices.includes(index) ? (
+                                    <div>
+                                        <input
+                                            type="text"
+                                            value={intialEditedValues[index]?.description || ''}
+                                            onChange={(event) => handleEditChange(event, index, "description")}
+                                        />
+                                    </div>
+                                ) : (
+                                    <span>{entry.description}</span>
+                                )}
+                            </td>
+                            <td>
+                                {editedIndices.includes(index) ? (
+                                    <div>
+                                        <input
+                                            type="text"
+                                            value={intialEditedValues[index]?.bookedLabor || ''}
+                                            onChange={(event) => handleEditChange(event, index, "bookedLabor")}
+                                        />
+                                    </div>
+                                ) : (
+                                    <span>{entry.bookedLabor}</span>
+                                )}
+                            </td>
+                            <td style={{ backgroundColor: statusColor(intialEditedValues[index]?.status) }}>
+                                {editedIndices.includes(index) ? (
+                                    <div>
+                                        <select
+                                            type="text"
+                                            value={intialEditedValues[index]?.status || ''}
+                                            onChange={(event) => handleEditChange(event, index, "status")}
+                                        >
+                                            <option value="Open">Open</option>
+                                            <option value="Completed">Completed</option>
+                                            <option value="In-Progress">In-Progress</option>
+                                        </select>
+                                    </div>
+                                ) : (
+                                    <span>{entry.status}</span>
+                                )}
+                            </td>
+                            <td>
+                                {editedIndices.includes(index) ? (
+                                    <div>
+                                        <input
+                                            type="text"
+                                            value={intialEditedValues[index]?.comments || ''}
+                                            onChange={(event => handleEditChange(event, index, "comments"))}
+                                        />
+                                    </div>
+                                ) : (
+                                    <span>{entry.comments}</span>
+                                )}
+
+                                {editedIndices.includes(index) ? (
+                                    <button className="saveEditedWorkorderButton" onClick={() => handleEditSave(index)}>Save Changes</button>
+                                ) : (
+
+                                    <span className="edit-delete-icons">
+                                        <FaPencilAlt className="editIcon" onClick={() => handleEditClick(index, 'comments')} />
+                                        <FaTrash className="trashIcon" onClick={() => handleDeleteClick(index)} />
+                                    </span>
+                                )}
+                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -143,4 +174,5 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
 }
 
 export default WorkTable;
+
 

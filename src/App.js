@@ -7,10 +7,28 @@ import CreatePassdown from "./components/CreatePassdown";
 import React, { useEffect, useState } from "react";
 
 function App() {
+  const [addWorkButton, setAddworkButton] = useState(false);
+  const handleAddworkButton = () => {
+    setAddworkButton(!addWorkButton);
+  }
+
+  const [submitPassdownButton, setSubmitPassdownButton] = useState(false);
+  const handleSubmitPassdownButton = () => {
+   setSubmitPassdownButton(!submitPassdownButton);
+  }
+
+  const [shiftEditButton, setShiftEditButton] = useState(false);
+  const handleShiftEditButton = () => {
+    setShiftEditButton(!shiftEditButton)
+  }
 
   return (
     <div>
-      <NavBar />
+      <NavBar 
+      handleAddworkButton={handleAddworkButton} 
+      handleSubmitPassdownButton={handleSubmitPassdownButton}
+      handleShiftEditButton={handleShiftEditButton}
+       />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -24,7 +42,15 @@ function App() {
         />
         <Route exact path="/passdown/createPassdown"
           render={(routeProps) =>
-            <CreatePassdown {...routeProps} />}
+            <CreatePassdown 
+            {...routeProps} 
+            addWorkButton={addWorkButton} 
+            handleAddworkButton={handleAddworkButton}
+            submitPassdownButton={submitPassdownButton}
+            handleSubmitPassdown={handleSubmitPassdownButton}
+            shiftEditButton={shiftEditButton}
+            handleShiftEditButton={handleShiftEditButton}
+            />}
         />
       </Switch>
     </div>

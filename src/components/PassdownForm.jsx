@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import AddworkForm from "./AddworkForm";
+import React, { useState } from "react";
 
-
-function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
+function PassdownForm({ techs, passdown, currentPassdown, shiftInfo, onCancel  }) {
     
     const [selectedTech, setSelectedTech] = useState("");
     const [date, setDate] = useState("");
     const [timeIn, setTimeIn] = useState("");
     const [timeOut, setTimeOut] = useState("");
-    const [isAddingWork, setIsAddingWork] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,13 +17,18 @@ function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
              timeOut: timeOut,
         };
         shiftInfo([passdownInfo]);
-    };
-    const toggleAddWorkForm = () => {
-        setIsAddingWork(!isAddingWork);
+        console.log(passdownInfo)
     };
 
+    const handleCloseClick = () => {
+        onCancel()
+    }
     return (
         <div className="passdownHeader">
+            <div className="passdownHeaderTitle">
+                <h1>Shift Information</h1>
+                <h1 className="shiftInfoClose-icon" onClick={handleCloseClick}>X</h1>
+            </div>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <div className="passdownHeaderTop">
                     <label>Tech</label>
@@ -43,17 +45,10 @@ function PassdownForm({ techs, passdown, currentPassdown, shiftInfo }) {
                     <label>Time Out: </label>
                     <input type="time" value={timeOut} onChange={(event) => setTimeOut(event.target.value)} />
                 </div>
-                {/* <button type="submit" onClick={handleSubmit}>Submit Shit Info</button> */}
-                <button onClick={toggleAddWorkForm}>Add Workorder</button>
+                <div>
+                    <button className="addShiftInfoButton" type="submit">Submit</button>
+                </div>
             </form>
-
-            {isAddingWork && (
-                <AddworkForm
-                    onCancel={toggleAddWorkForm}
-                    passdown={passdown}
-                    currentPassdown={currentPassdown} />
-            )}
-
         </div>
     );
 }

@@ -1,9 +1,12 @@
 import { NavLink, useLocation, Link } from "react-router-dom";
+import React, {useState} from "react";
 import "../styles.css";
 import logo from '../logo.jpeg';
 
-function NavBar() {
+
+function NavBar({handleAddworkButton, handleSubmitPassdownButton, handleShiftEditButton}) {
     const location = useLocation();
+    
 
     return (
         <div className="navBar">
@@ -16,6 +19,14 @@ function NavBar() {
                     <div>
                         <Link to="/passdown/createPassdown" className="createPassdownLink">Create Passdown</Link>
                         <Link to="/passdown/searchPassdown" className="searchPassdownButton">Search</Link>
+                    </div>
+                )}
+                {location.pathname === '/passdown/createPassdown' && (
+                    <div>
+                        <button className="addWorkButton" onClick={handleShiftEditButton}>Shift Info</button>
+                        <button className="addWorkButton" onClick={handleAddworkButton} >Add Workorder</button>
+                        <button className="sendPassdownButton" onClick={handleSubmitPassdownButton}>Submit End of Shift Passdown</button>
+                        
                     </div>
                 )}
             </div>

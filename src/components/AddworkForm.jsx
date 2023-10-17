@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 
 function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
@@ -17,28 +17,40 @@ function AddworkForm({ onCancel, tech, passdown, currentPassdown }) {
             description: workorderDescription,
             bookedLabor: "0",
             status: "Open",
-            comments: "(add comments here)"
+            comments: ""
         }
 
         passdown([...currentPassdown, workItem]);
 
         onCancel()
 
-
     }
+
+    function handleCloseClick() {
+        onCancel();
+    }
+
     return (
-        <div>
-            <label>Workorder Number</label>
-            <input
-                type="text"
-                value={workorderNumber}
-                onChange={(event) => setWorkorderNumber(event.target.value)} />
-            <label>Description</label>
-            <input
-                type="text"
-                onChange={(event) => setWorkorderDescription(event.target.value)} />
-            <button onClick={(event) => handleSaveWorkButtonClick(event)}>Add to Table</button>
-            <button onClick={onCancel}>Cancel</button>
+    
+        <div className="addwork">
+        <div className="addworkTopRow">
+            <h1>Add Work</h1>
+            <h1 className="addworkClose-icon" onClick={handleCloseClick}>X</h1>
+            </div>
+            <form className="addworkForm">
+                <label>Workorder Number: </label>
+                <input
+                    type="text"
+                    value={workorderNumber}
+                    onChange={(event) => setWorkorderNumber(event.target.value)} />
+                <label>Description: </label>
+                <input
+                    type="text"
+                    onChange={(event) => setWorkorderDescription(event.target.value)} />
+            </form>
+            <div>
+            <button className="buttonAddworkForm" onClick={(event) => handleSaveWorkButtonClick(event)}>Add to Table</button>
+            </div>
         </div>
     );
 }

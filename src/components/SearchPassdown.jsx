@@ -28,14 +28,6 @@ function SearchPassdown() {
         setSearchResults(filteredData);
     };
 
-    // function statusColor(status) {
-    //     if (status === "Completed") {
-    //         return "green"
-    //     } else if (status === "In-Progress") {
-    //         return "yellow"
-    //     }
-    // }
-
     return (
         <div className="searchPassdownMain">
             <div className="searchPassdownTitle">
@@ -60,7 +52,6 @@ function SearchPassdown() {
                             ))}
                         </select>
                     </label>
-                    {/* <button type="button" onClick={handleSearch}>Search</button> */}
                 </form>
                 <button className="searachPassdownButton" type="button" onClick={handleSearch}>Search</button>
                 </div>
