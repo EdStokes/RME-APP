@@ -22,7 +22,7 @@ function SearchPassdown() {
         const filteredData = searchData.filter((entry) => {
             const isDateMatch = searchDate === "" || entry.date === searchDate;
             const isTechMatch = techs === "" || entry.tech === techs;
-            return isDateMatch && isTechMatch
+            return isDateMatch && isTechMatch  
         });
 
         setSearchResults(filteredData);

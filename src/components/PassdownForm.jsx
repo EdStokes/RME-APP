@@ -1,28 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function PassdownForm({ techs, passdown, currentPassdown, shiftInfo, onCancel  }) {
-    
-    const [selectedTech, setSelectedTech] = useState("");
-    const [date, setDate] = useState("");
-    const [timeIn, setTimeIn] = useState("");
-    const [timeOut, setTimeOut] = useState("");
+function PassdownForm({
+    techs,
+    passdown,
+    currentPassdown,
+    shiftData,
+    onCancel,
+    setShiftData,
+    hoursWorked,
+    setHoursWorked,
+    adjustedHours,
+    setAdjustedHours,
+}) {
+
+   
+    const [selectedTech, setSelectedTech] = useState(shiftData ? shiftData[0].selectedTech : "");
+    const [date, setDate] = useState(shiftData ? shiftData[0].date : "");
+    const [timeIn, setTimeIn] = useState(shiftData ? shiftData[0].timeIn : "00:00");
+    const [timeOut, setTimeOut] = useState(shiftData ? shiftData[0].timeOut : "00:00");
+
+    useEffect(() => {
+        setHoursWorked(hoursWorked);
+        setAdjustedHours(adjustedHours);
+    }, [hoursWorked, adjustedHours])
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const passdownInfo = {
-             date: date,
-             selectedTech,
-             timeIn: timeIn,
-             timeOut: timeOut,
+            date: date,
+            selectedTech,
+            timeIn: timeIn,
+            timeOut: timeOut,
+            hours: hoursWorked,
+            adjustedHours: adjustedHours
         };
-        shiftInfo([passdownInfo]);
-        console.log(passdownInfo)
+
+        setShiftData([passdownInfo]);
+        handleCloseClick();
     };
 
     const handleCloseClick = () => {
         onCancel()
     }
+
+    useEffect(() => {
+        const shiftDataString = JSON.stringify(shiftData);
+        localStorage.setItem('shiftData', shiftDataString);
+        console.log("shift data saved to local storage", shiftData)
+    }, [handleSubmit])
+
+
+
     return (
         <div className="passdownHeader">
             <div className="passdownHeaderTitle">

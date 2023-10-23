@@ -72,7 +72,7 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
     }
 
     return (
-        <div>
+        <div className="mainPassdownTable">
             <table className="passdownTable">
                 <thead>
                     <tr>
