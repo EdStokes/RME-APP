@@ -80,6 +80,7 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
                         <th>Descritption</th>
                         <th>Booked Labor</th>
                         <th>Status</th>
+                        <th>PTP</th>
                         <th>Comments</th>
                     </tr>
                 </thead>
@@ -141,6 +142,9 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
                                 ) : (
                                     <span>{entry.status}</span>
                                 )}
+                            </td>
+                            <td>  
+                                <select type="box" />
                             </td>
                             <td>
                                 {editedIndices.includes(index) ? (
