@@ -143,8 +143,8 @@ function WorkTable({ currentPassdown, setCurrentPassdown }) {
                                     <span>{entry.status}</span>
                                 )}
                             </td>
-                            <td>  
-                                <select type="box" />
+                            <td className="ptpBox"> 
+                                        <input type="checkbox" className="ptpChecked"/>
                             </td>
                             <td>
                                 {editedIndices.includes(index) ? (

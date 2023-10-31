@@ -323,6 +323,91 @@
       "timeOut": "00:00",
       "wordorder": [],
       "id": 225
+    },
+    {
+      "date": "2023-10-24",
+      "tech": "Superman",
+      "timeIn": "05:30",
+      "timeOut": "16:00",
+      "wordorder": [
+        {
+          "workorder": "23452345",
+          "description": "Work to complete",
+          "bookedLabor": "2",
+          "status": "Completed",
+          "comments": ""
+        },
+        {
+          "workorder": "2452345",
+          "description": "complete work",
+          "bookedLabor": "0",
+          "status": "Completed",
+          "comments": ""
+        },
+        {
+          "workorder": "1234322",
+          "description": "Need to complete",
+          "bookedLabor": ".5",
+          "status": "Open",
+          "comments": ""
+        },
+        {
+          "workorder": "533444",
+          "description": "complete work",
+          "bookedLabor": "3",
+          "status": "In-Progress",
+          "comments": ""
+        },
+        {
+          "workorder": "4222344",
+          "description": "Work to complete",
+          "bookedLabor": "0",
+          "status": "Open",
+          "comments": ""
+        },
+        {
+          "workorder": "2345234",
+          "description": "to be completed",
+          "bookedLabor": "2",
+          "status": "In-Progress",
+          "comments": ""
+        },
+        {
+          "workorder": "234322",
+          "description": "working",
+          "bookedLabor": "1",
+          "status": "In-Progress",
+          "comments": ""
+        },
+        {
+          "workorder": "123423",
+          "description": "work to be completed",
+          "bookedLabor": "1",
+          "status": "Completed",
+          "comments": ""
+        },
+        {
+          "workorder": "22342343",
+          "description": "More work to be completed",
+          "bookedLabor": "0",
+          "status": "Open",
+          "comments": ""
+        },
+        {
+          "workorder": "2333444",
+          "description": "work to be completed",
+          "bookedLabor": "0",
+          "status": "Open",
+          "comments": ""
+        }
+      ],
+      "id": 226
+    },
+    {
+      "timeIn": "00:00",
+      "timeOut": "00:00",
+      "wordorder": [],
+      "id": 227
     }
   ],
   "techs": [
